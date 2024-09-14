@@ -1,0 +1,8 @@
+---
+  - hosts: webservers
+    become: yes
+  - tasks:
+     - name: Install apps
+       apt:
+         name: ['mc', 'nano', 'net-tools']    
+         state: present

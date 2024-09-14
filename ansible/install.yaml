@@ -1,0 +1,17 @@
+---
+  - hosts: webservers
+    become: yes
+    tasks:
+      - name: Install apps Debian family
+        apt:
+          name: ['mc', 'net-tools', 'nano', 'zip', 'nginx']
+          state: present
+          update_cache: true
+        when: ansible_os_family == 'Debian'
+
+      - name: Run NGINX Debian family
+        service:
+          name: nginx
+          state: started
+          enabled: yes
+        when: ansible_os_family == 'Debian'

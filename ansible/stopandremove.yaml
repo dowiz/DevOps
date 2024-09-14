@@ -1,0 +1,14 @@
+---
+  - hosts: webservers
+    become: yes
+    tasks:
+      - name: Stop NGINX Debian family
+        service:
+          name: nginx
+          state: stopped
+        when: ansible_os_family == 'Debian'
+
+      - name: Remove NGINX Debian family
+        apt:
+          name: nginx
+          state: absent

@@ -1,0 +1,23 @@
+---
+ - hosts: webservers
+   tasks:
+    - name: Display hostname
+      command: hostname
+      register: output
+    - debug: msg={{ output.stdout }}
+      
+    - name: OS Version
+      command: cat /etc/os-release
+      register: output
+    - debug: msg={{ output.stdout_lines[0] }}
+
+    - name: Display ip adresses
+      command: sudo ip addr
+      register: output
+    - debug: msg={{ output.stdout_lines | regex_search(".inet*", multiline=True) }} 
+
+    - name: Display users
+      command: cat /etc/passwd
+      register: output
+    - debug: msg={{ output.stdout | regex_search("*bash*", multiline=True) }}
+      
