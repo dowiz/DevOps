@@ -1,0 +1,34 @@
+---
+- name: installing apps on winclients
+  hosts: winclients
+  gather_facts: no
+  tasks:
+    - name: Uninstall googlechrome
+      win_chocolatey:
+        name: googlechrome
+        version: '129.0.6668.71'
+        state: absent
+
+    - name: Uninstall adobereader
+      win_chocolatey:
+        name: adobereader
+        version: '2024.3.20112'
+        state: absent
+
+    - name: Uninstall firefox
+      win_chocolatey:
+        name: firefox
+        state: absent
+
+    - name: Uninstall jre8
+      win_chocolatey:
+        name: jre8
+        version: '8.0.421'
+        state: absent
+
+    - name: Uninstall kb3035131
+      win_chocolatey:
+        name: kb3035131
+        version: '1.0.3'
+        state: absent
+

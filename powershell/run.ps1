@@ -1,0 +1,2 @@
+mspaint
+calc

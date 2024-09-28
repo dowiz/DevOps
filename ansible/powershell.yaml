@@ -1,0 +1,12 @@
+---
+- name: Copy and run powershell script
+  hosts: winclients
+  gather_facts: no
+  tasks:
+    - name: Copy script run.ps1
+      ansible.windows.win_copy:
+        src: /home/dowiz/git/dowiz/DevOps/powershell/run.ps1
+        dest: C:\Temp\
+
+    - name: Execute a command in the remote shell, stdout goes to the specified file on the remote
+      ansible.windows.win_shell: C:\Temp\run.ps1 >> C:\Temp\run.ps1_log.txt

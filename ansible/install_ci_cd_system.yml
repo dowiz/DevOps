@@ -1,0 +1,20 @@
+---
+  - hosts: all
+    become: yes
+    tasks:
+      - name: Copy docker script for Ubuntu 24.04
+        copy:
+          src: /home/dowiz/git/dowiz/DevOps/ansible/files/install_ci_cd_ubuntu.sh
+          dest: /home/install_ci_cd_ubuntu.sh
+          mode: u=rwx,g=rx,o=rx
+        when: ansible_os_family == 'Debian'
+
+      - name: Run installation script
+        shell: /home/install_ci_cd_ubuntu.sh
+        when: ansible_os_family == "Debian"
+
+      - name: Delete installation script
+        file:
+          path: /home/install_ci_cd_ubuntu.sh
+          state: absent
+        when: ansible_os_family == "Debian"

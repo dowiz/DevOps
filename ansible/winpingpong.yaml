@@ -1,0 +1,9 @@
+---
+- name: test pingpong
+  hosts: winclients
+  gather_facts: no
+  tasks:
+
+    - name: Example from an Ansible Playbook
+      ansible.windows.win_ping:
+
