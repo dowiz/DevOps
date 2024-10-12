@@ -1,0 +1,4 @@
+/terraform/ec2/.terraform
+/terraform/ec2/terraform.tfstate
+/terraform/ec2/terraform.tfstate.backup
+/terraform/ec2/variables.tf
