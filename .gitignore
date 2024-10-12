@@ -2,3 +2,4 @@
 /terraform/ec2/terraform.tfstate
 /terraform/ec2/terraform.tfstate.backup
 /terraform/ec2/variables.tf
+/terraform/ec2/.terraform.lock.hcl
